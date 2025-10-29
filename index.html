@@ -4,16 +4,32 @@
     <title>“你好”字体与颜色展示</title>
     <style>
         body {
-          font-family: Arial, sans-serif;
-          padding: 20px;
-          background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .intro-img {
+            width: 60%;
+            max-width: 500px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
         .text-sample {
-          margin: 15px 0;
-          padding: 10px;
-          border-radius: 5px;
-          display: inline-block;
+            margin: 15px auto;
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: inline-block;
+            box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
         }
 
         .font1 { font-family: "SimSun", serif; color: red; font-weight: bold; }
@@ -21,16 +37,40 @@
         .font3 { font-family: "KaiTi", serif; color: green; font-weight: bold; font-style: italic; }
         .font4 { font-family: "Arial", sans-serif; color: purple; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
         .font5 { font-family: "Comic Sans MS", cursive; color: orange; font-size: 2em; }
+
+        .footer-img {
+            width: 40%;
+            max-width: 300px;
+            margin-top: 30px;
+            opacity: 0.8;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
-<h1>“你好”的不同字体与颜色展示</h1>
 
+<!-- 添加介绍性图片 -->
+<h1>“你好”的不同字体与颜色展示</h1>
+<p>以下展示了“你好”在不同中文字体和样式下的呈现效果：</p>
+
+<!-- 示例图片：可替换为实际存在的图片链接 -->
+<img src="https://via.placeholder.com/500x200?text=字体艺术示意图"
+     alt="字体艺术展示图"
+     class="intro-img">
+
+<!-- 原有文本展示 -->
 <div class="text-sample font1">你好（宋体，红色，加粗）</div><br>
 <div class="text-sample font2">你好（微软雅黑，蓝色，斜体）</div><br>
 <div class="text-sample font3">你好（楷体，绿色，粗斜）</div><br>
 <div class="text-sample font4">你好（Arial，紫色，带阴影）</div><br>
 <div class="text-sample font5">你好（Comic Sans，橙色，大号）</div>
+
+<!-- 底部装饰图片 -->
+<img src="https://via.placeholder.com/300x100?text=书法艺术"
+     alt="书法艺术图案"
+     class="footer-img">
+
+<p style="color: #666; margin-top: 20px;">探索中文字体之美</p>
 
 </body>
 </html>
