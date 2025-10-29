@@ -1,76 +1,429 @@
+<!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>“你好”字体与颜色展示</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>炫酷"你好"字体艺术展示</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+KuaiLe&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
             padding: 20px;
-            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
             text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            position: relative;
         }
 
         h1 {
-            color: #333;
-            margin-bottom: 30px;
-            font-size: 28px;
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #ff6b6b, #ffa726, #ffee58, #4cd137, #00a8ff, #9c88ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradientShift 8s ease infinite;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            font-family: 'ZCOOL QingKe HuangYou', cursive;
         }
 
-        .intro-img {
-            width: 60%;
+        .subtitle {
+            font-size: 1.2rem;
+            color: #a0aec0;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
             max-width: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image:hover {
+            transform: translateY(-10px);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .font-showcase {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .main-hello {
+            font-size: 5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(255, 107, 107, 0.7);
+            animation: pulse 2s infinite;
+            font-family: 'Ma Shan Zheng', cursive;
+        }
+
+        .font-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .font-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .font-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .font-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ff6b6b, #ffa726, #ffee58, #4cd137, #00a8ff, #9c88ff);
+        }
+
+        .font-name {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #a0aec0;
+        }
+
+        .font-sample {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .font1 {
+            font-family: 'Ma Shan Zheng', cursive;
+            color: #ff6b6b;
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+
+        .font2 {
+            font-family: 'ZCOOL KuaiLe', cursive;
+            color: #4cd137;
+            text-shadow: 0 0 10px rgba(76, 209, 55, 0.5);
+        }
+
+        .font3 {
+            font-family: 'ZCOOL QingKe HuangYou', cursive;
+            color: #00a8ff;
+            text-shadow: 0 0 10px rgba(0, 168, 255, 0.5);
+        }
+
+        .font4 {
+            font-family: 'Arial Black', sans-serif;
+            color: #9c88ff;
+            text-shadow: 0 0 10px rgba(156, 136, 255, 0.5);
+            background: linear-gradient(45deg, #9c88ff, #8c7ae6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .font5 {
+            font-family: 'Comic Sans MS', cursive;
+            color: #ffa726;
+            text-shadow: 0 0 10px rgba(255, 167, 38, 0.5);
+        }
+
+        .font6 {
+            font-family: 'Times New Roman', serif;
+            color: #fbc531;
+            text-shadow: 0 0 10px rgba(251, 197, 49, 0.5);
+            font-style: italic;
+        }
+
+        .interactive-section {
+            text-align: center;
+            margin: 50px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .custom-hello {
+            font-size: 4rem;
+            margin: 20px 0;
+            min-height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.5s ease;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(45deg, #ff6b6b, #ffa726);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.6);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #a0aec0;
+            font-size: 0.9rem;
+        }
+
+        .footer-image {
+            width: 100%;
+            max-width: 400px;
             margin: 20px auto;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
-        .text-sample {
-            margin: 15px auto;
-            padding: 10px 15px;
-            border-radius: 5px;
-            display: inline-block;
-            box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+        .footer-image img {
+            width: 100%;
+            display: block;
         }
 
-        .font1 { font-family: "SimSun", serif; color: red; font-weight: bold; }
-        .font2 { font-family: "Microsoft YaHei", sans-serif; color: blue; font-style: italic; }
-        .font3 { font-family: "KaiTi", serif; color: green; font-weight: bold; font-style: italic; }
-        .font4 { font-family: "Arial", sans-serif; color: purple; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
-        .font5 { font-family: "Comic Sans MS", cursive; color: orange; font-size: 2em; }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-        .footer-img {
-            width: 40%;
-            max-width: 300px;
-            margin-top: 30px;
-            opacity: 0.8;
-            border-radius: 8px;
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .main-hello {
+                font-size: 3.5rem;
+            }
+
+            .font-sample {
+                font-size: 2rem;
+            }
+
+            .custom-hello {
+                font-size: 3rem;
+            }
         }
     </style>
 </head>
 <body>
+<div class="container">
+    <header>
+        <h1>炫酷"你好"字体艺术</h1>
+        <p class="subtitle">探索中文字体之美，感受传统与现代的完美融合</p>
+    </header>
 
-<!-- 添加介绍性图片 -->
-<h1>“你好”的不同字体与颜色展示</h1>
-<p>以下展示了“你好”在不同中文字体和样式下的呈现效果：</p>
+    <section class="hero-section">
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="书法艺术">
+        </div>
+        <div class="font-showcase">
+            <div class="main-hello floating">你好</div>
+            <p>中文问候的艺术表达，融合传统书法与现代设计</p>
+        </div>
+    </section>
 
-<!-- 示例图片：可替换为实际存在的图片链接 -->
-<img src="https://via.placeholder.com/500x200?text=字体艺术示意图"
-     alt="字体艺术展示图"
-     class="intro-img">
+    <section class="font-grid">
+        <div class="font-card">
+            <div class="font-name">马善政体</div>
+            <div class="font-sample font1">你好</div>
+            <p>传统书法风格，优雅流畅</p>
+        </div>
+        <div class="font-card">
+            <div class="font-name">站酷快乐体</div>
+            <div class="font-sample font2">你好</div>
+            <p>活泼可爱，充满童趣</p>
+        </div>
+        <div class="font-card">
+            <div class="font-name">站酷庆科黄油体</div>
+            <div class="font-sample font3">你好</div>
+            <p>现代简约，时尚清新</p>
+        </div>
+        <div class="font-card">
+            <div class="font-name">Arial Black</div>
+            <div class="font-sample font4">你好</div>
+            <p>西文字体，中文适配</p>
+        </div>
+        <div class="font-card">
+            <div class="font-name">Comic Sans</div>
+            <div class="font-sample font5">你好</div>
+            <p>轻松随意，亲切友好</p>
+        </div>
+        <div class="font-card">
+            <div class="font-name">Times New Roman</div>
+            <div class="font-sample font6">你好</div>
+            <p>经典衬线，优雅斜体</p>
+        </div>
+    </section>
 
-<!-- 原有文本展示 -->
-<div class="text-sample font1">你好（宋体，红色，加粗）</div><br>
-<div class="text-sample font2">你好（微软雅黑，蓝色，斜体）</div><br>
-<div class="text-sample font3">你好（楷体，绿色，粗斜）</div><br>
-<div class="text-sample font4">你好（Arial，紫色，带阴影）</div><br>
-<div class="text-sample font5">你好（Comic Sans，橙色，大号）</div>
+    <section class="interactive-section">
+        <h2>自定义"你好"效果</h2>
+        <div id="customHello" class="custom-hello font1">你好</div>
+        <div class="controls">
+            <button onclick="changeFont('font1')">马善政体</button>
+            <button onclick="changeFont('font2')">站酷快乐体</button>
+            <button onclick="changeFont('font3')">站酷庆科黄油体</button>
+            <button onclick="changeFont('font4')">Arial Black</button>
+            <button onclick="changeFont('font5')">Comic Sans</button>
+            <button onclick="changeFont('font6')">Times New Roman</button>
+            <button onclick="changeColor()">随机颜色</button>
+            <button onclick="addEffect()">添加特效</button>
+        </div>
+    </section>
 
-<!-- 底部装饰图片 -->
-<img src="https://via.placeholder.com/300x100?text=书法艺术"
-     alt="书法艺术图案"
-     class="footer-img">
+    <footer>
+        <div class="footer-image">
+            <img src="https://images.unsplash.com/photo-1531747118685-ca8fa6e08806?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="中文书法">
+        </div>
+        <p>探索中文字体之美 | 传统与现代的完美融合</p>
+        <p>© 2023 字体艺术展示</p>
+    </footer>
+</div>
 
-<p style="color: #666; margin-top: 20px;">探索中文字体之美</p>
+<script>
+    // 自定义"你好"交互功能
+    const customHello = document.getElementById('customHello');
+    let effectCount = 0;
 
+    function changeFont(fontClass) {
+        // 移除所有字体类
+        customHello.classList.remove('font1', 'font2', 'font3', 'font4', 'font5', 'font6');
+        // 添加选中的字体类
+        customHello.classList.add(fontClass);
+    }
+
+    function changeColor() {
+        const colors = [
+            '#ff6b6b', '#4cd137', '#00a8ff', '#9c88ff', '#ffa726', '#fbc531',
+            '#e84118', '#8c7ae6', '#0097e6', '#44bd32', '#e1b12c'
+        ];
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        customHello.style.color = randomColor;
+        customHello.style.textShadow = `0 0 15px ${randomColor}80`;
+    }
+
+    function addEffect() {
+        effectCount++;
+
+        if (effectCount === 1) {
+            customHello.style.animation = 'pulse 1.5s infinite';
+        } else if (effectCount === 2) {
+            customHello.style.animation = 'float 3s ease-in-out infinite';
+        } else if (effectCount === 3) {
+            customHello.style.animation = 'pulse 1s infinite, float 4s ease-in-out infinite';
+        } else {
+            // 重置效果
+            customHello.style.animation = '';
+            effectCount = 0;
+        }
+    }
+
+    // 初始加载时添加一些动画效果
+    window.addEventListener('load', function() {
+        const fontCards = document.querySelectorAll('.font-card');
+        fontCards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+        });
+    });
+</script>
 </body>
 </html>
